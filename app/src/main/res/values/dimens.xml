@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="relative_margin">20dp</dimen>
+    <dimen name="top_margin">5dp</dimen>
+    <dimen name="left_margin">5dp</dimen>
+    <dimen name="right_margin">5dp</dimen>
+    <dimen name="image_right_margin">20dp</dimen>
+    <dimen name="picture_title_top_margin">10dp</dimen>
+    <dimen name="picture_title_text_size">20sp</dimen>
+    <dimen name="picture_desc_text_size">15sp</dimen>
+    <dimen name="imageview_height">100dp</dimen>
+    <dimen name="relative_padding">20dp</dimen>
+</resources>
