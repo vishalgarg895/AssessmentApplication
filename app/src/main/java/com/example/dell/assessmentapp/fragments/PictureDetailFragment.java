@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -21,9 +22,10 @@ import com.example.dell.assessmentapp.view.PicturesDetailView;
 
 import java.util.List;
 
-public class PictureDetailFragment extends Fragment implements PicturesDetailView {
+public class PictureDetailFragment extends Fragment implements PicturesDetailView, SwipeRefreshLayout.OnRefreshListener {
 
     private RecyclerView mPictureDetailRecyclerView;
+    private SwipeRefreshLayout mSwipeRefreshLayout;
     private ProgressDialog mProgressDialog;
 
     private PictureDetailPresenter mPresenter;
@@ -37,7 +39,9 @@ public class PictureDetailFragment extends Fragment implements PicturesDetailVie
         View view = inflater.inflate(R.layout.picture_detail_fragment, container, false);
         mContext = getActivity();
         mPictureDetailRecyclerView = (RecyclerView) view.findViewById(R.id.pictureRecyclerView);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
         mPictureDetailRecyclerView.setHasFixedSize(true);
+        mSwipeRefreshLayout.setOnRefreshListener(this);
 
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(mContext);
         mPictureDetailRecyclerView.setLayoutManager(mLinearLayoutManager);
@@ -46,12 +50,17 @@ public class PictureDetailFragment extends Fragment implements PicturesDetailVie
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        requestPictiuresDetailList();
+    }
+
+    private void requestPictiuresDetailList() {
         if (NetworkConnection.isNetworkConnected(mContext)) {
             initializeProgressBar();
             mPresenter.retrievePictureDetails();
         } else {
+            mSwipeRefreshLayout.setRefreshing(false);
             showNetworkErrorToastMessage();
         }
     }
@@ -70,12 +79,19 @@ public class PictureDetailFragment extends Fragment implements PicturesDetailVie
     public void updatePictureDetailList(List<PictureModel> pictureDetailList) {
         PictureListAdapter mPictureListAdapter = new PictureListAdapter(pictureDetailList, mContext);
         mPictureDetailRecyclerView.setAdapter(mPictureListAdapter);
+        mSwipeRefreshLayout.setRefreshing(false);
     }
 
     @Override
     public void showNetworkErrorToastMessage() {
         Toast.makeText(mContext, getString(R.string.request_failure_message),
-                Toast.LENGTH_SHORT).show();
+                Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onRefresh() {
+        mSwipeRefreshLayout.setRefreshing(true);
+        requestPictiuresDetailList();
     }
 
     private void initializeProgressBar() {

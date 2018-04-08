@@ -1,42 +1,62 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginEnd="@dimen/right_margin"
-    android:layout_marginLeft="@dimen/left_margin"
-    android:layout_marginRight="@dimen/right_margin"
-    android:layout_marginStart="@dimen/left_margin"
-    android:layout_marginTop="@dimen/top_margin"
-    android:padding="@dimen/relative_padding">
+    android:layout_marginBottom="@dimen/common_padding"
+    android:background="@color/colorGray"
+    android:padding="@dimen/common_padding"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/bottom_margin"
+        android:layout_marginTop="@dimen/top_margin"
+        android:layout_weight=".90"
+        android:paddingLeft="@dimen/common_padding">
+
+        <TextView
+            android:id="@+id/pictureTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="3"
+            android:textColor="@color/titleTextColor"
+            android:textSize="@dimen/picture_title_text_size"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pictureTitleText"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/pictureDescriptionText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/top_margin"
+                android:layout_weight=".75"
+                android:maxLines="4"
+                android:textSize="@dimen/picture_desc_text_size"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/pictureImageView"
+                android:layout_width="@dimen/picture_width"
+                android:layout_height="@dimen/picture_height"
+                android:layout_marginTop="@dimen/top_margin"
+                android:layout_weight=".25"
+                android:fitsSystemWindows="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_launcher_foreground" />
+        </LinearLayout>
+
+    </RelativeLayout>
 
     <ImageView
-        android:id="@+id/pictureImageView"
-        android:layout_width="fill_parent"
-        android:layout_height="@dimen/imageview_height"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:fitsSystemWindows="true"
-        android:scaleType="fitXY"
-        android:src="@drawable/ic_launcher_foreground" />
-
-    <TextView
-        android:id="@+id/pictureTitleText"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/pictureImageView"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="@dimen/picture_title_top_margin"
-        android:textSize="@dimen/picture_title_text_size"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/pictureDescriptionText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/pictureTitleText"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="@dimen/picture_title_top_margin"
-        android:textSize="@dimen/picture_desc_text_size"
-        android:textStyle="bold" />
-</RelativeLayout>
+        android:layout_gravity="center_vertical"
+        android:layout_weight=".10"
+        android:src="@drawable/right_arrow" />
+</LinearLayout>

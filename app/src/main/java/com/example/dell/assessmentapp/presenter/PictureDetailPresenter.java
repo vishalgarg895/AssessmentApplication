@@ -1,5 +1,7 @@
 package com.example.dell.assessmentapp.presenter;
 
+import android.util.Log;
+
 import com.example.dell.assessmentapp.model.PictureDetailsResponse;
 import com.example.dell.assessmentapp.model.PictureModel;
 import com.example.dell.assessmentapp.networkclient.ApiClient;
