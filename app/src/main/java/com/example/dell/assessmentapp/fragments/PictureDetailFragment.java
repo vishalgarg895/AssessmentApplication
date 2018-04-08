@@ -1,5 +1,6 @@
 package com.example.dell.assessmentapp.fragments;
 
+import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
@@ -20,9 +21,10 @@ import com.example.dell.assessmentapp.view.PicturesDetailView;
 
 import java.util.List;
 
-public class PictureDetailFragment extends BaseFragment implements PicturesDetailView {
+public class PictureDetailFragment extends Fragment implements PicturesDetailView {
 
     private RecyclerView mPictureDetailRecyclerView;
+    private ProgressDialog mProgressDialog;
 
     private PictureDetailPresenter mPresenter;
     private Context mContext;

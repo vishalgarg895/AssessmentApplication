@@ -55,6 +55,7 @@ public class PictureListAdapter extends RecyclerView.Adapter<PictureListAdapter.
 
         Picasso.with(mContext).load(mPictureModelList.get(position).getImageHref())
                 .placeholder(R.drawable.ic_launcher_background)
+                .error(R.drawable.error)
                 .into(holder.mPictureImageView);
     }
 
