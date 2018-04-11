@@ -12,17 +12,23 @@ import com.example.dell.assessmentapp.R;
 import com.example.dell.assessmentapp.model.PictureModel;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class PictureListAdapter extends RecyclerView.Adapter<PictureListAdapter.ViewHolder> {
 
-    private List<PictureModel> mPictureModelList;
+    private List<PictureModel> mPictureModelList=new ArrayList<>();
     private Context mContext;
 
-    public PictureListAdapter(List<PictureModel> mPictureModelList, Context mContext) {
-        this.mPictureModelList = mPictureModelList;
-        this.mContext = mContext;
+    public PictureListAdapter(Context context) {
+        mContext = context;
+    }
+
+    public void updatePictureList(List<PictureModel> pictureModelList){
+        mPictureModelList.clear();
+        mPictureModelList=pictureModelList;
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -39,7 +45,6 @@ public class PictureListAdapter extends RecyclerView.Adapter<PictureListAdapter.
             mPictureImageView = (ImageView) view.findViewById(R.id.pictureImageView);
         }
     }
-
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

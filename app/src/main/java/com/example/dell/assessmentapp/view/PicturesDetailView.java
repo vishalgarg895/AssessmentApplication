@@ -12,5 +12,7 @@ public interface PicturesDetailView {
 
     void updatePictureDetailList(List<PictureModel> pictureDetailList);
 
-    void showNetworkErrorToastMessage();
+    void showNetworkErrorMessage();
+
+    void showRequestFailedErrorMessage();
 }
