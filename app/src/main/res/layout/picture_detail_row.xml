@@ -36,7 +36,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/top_margin"
                 android:layout_weight=".75"
-                android:maxLines="4"
                 android:textSize="@dimen/picture_desc_text_size"
                 android:textStyle="bold" />
 
