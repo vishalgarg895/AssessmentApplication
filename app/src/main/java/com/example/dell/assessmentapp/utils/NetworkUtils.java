@@ -1,9 +1,9 @@
-package com.example.dell.assessmentapp.networkclient;
+package com.example.dell.assessmentapp.utils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
 
-public class NetworkConnection {
+public class NetworkUtils {
 
     public static boolean isNetworkConnected(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context

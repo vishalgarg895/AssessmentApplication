@@ -1,4 +1,4 @@
-package com.example.dell.assessmentapp.activities;
+package com.example.dell.assessmentapp.ui.activities;
 
 import android.app.Activity;
 import android.os.Bundle;

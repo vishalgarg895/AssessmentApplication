@@ -1,6 +1,6 @@
-package com.example.dell.assessmentapp.view;
+package com.example.dell.assessmentapp.ui.mvp.view;
 
-import com.example.dell.assessmentapp.model.PictureModel;
+import com.example.dell.assessmentapp.ui.mvp.model.PictureModel;
 
 import java.util.List;
 

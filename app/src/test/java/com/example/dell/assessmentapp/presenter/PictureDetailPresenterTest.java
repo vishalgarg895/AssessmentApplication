@@ -1,25 +1,22 @@
 package com.example.dell.assessmentapp.presenter;
 
-import com.example.dell.assessmentapp.model.PictureDetailsResponse;
-import com.example.dell.assessmentapp.model.PictureModel;
+import com.example.dell.assessmentapp.ui.mvp.model.PictureDetailsResponse;
+import com.example.dell.assessmentapp.ui.mvp.model.PictureModel;
 import com.example.dell.assessmentapp.networkclient.ApiClient;
 import com.example.dell.assessmentapp.networkclient.ApiInterface;
-import com.example.dell.assessmentapp.view.PicturesDetailView;
+import com.example.dell.assessmentapp.ui.mvp.presenter.PictureDetailPresenter;
+import com.example.dell.assessmentapp.ui.mvp.view.PicturesDetailView;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.reactivestreams.Subscriber;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Single;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.observers.TestObserver;
-import io.reactivex.subscribers.TestSubscriber;
 import retrofit2.Response;
 
 import static org.mockito.Mockito.verify;

@@ -9,7 +9,7 @@
 
     <fragment
         android:id="@+id/fragment"
-        android:name="com.example.dell.assessmentapp.fragments.PictureDetailFragment"
+        android:name="com.example.dell.assessmentapp.ui.fragments.PictureDetailFragment"
         tools:layout="@layout/picture_detail_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

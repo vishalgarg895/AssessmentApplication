@@ -1,4 +1,4 @@
-package com.example.dell.assessmentapp.fragments;
+package com.example.dell.assessmentapp.ui.fragments;
 
 import android.app.Fragment;
 import android.content.Context;
@@ -14,11 +14,11 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.dell.assessmentapp.R;
-import com.example.dell.assessmentapp.adapter.PictureListAdapter;
-import com.example.dell.assessmentapp.model.PictureModel;
-import com.example.dell.assessmentapp.networkclient.NetworkConnection;
-import com.example.dell.assessmentapp.presenter.PictureDetailPresenter;
-import com.example.dell.assessmentapp.view.PicturesDetailView;
+import com.example.dell.assessmentapp.ui.adapter.PictureListAdapter;
+import com.example.dell.assessmentapp.ui.mvp.model.PictureModel;
+import com.example.dell.assessmentapp.utils.NetworkUtils;
+import com.example.dell.assessmentapp.ui.mvp.presenter.PictureDetailPresenter;
+import com.example.dell.assessmentapp.ui.mvp.view.PicturesDetailView;
 
 import java.util.List;
 
@@ -72,7 +72,7 @@ public class PictureDetailFragment extends Fragment implements OnClickListener, 
     }
 
     private void requestPicturesDetailList() {
-        if (NetworkConnection.isNetworkConnected(mContext)) {
+        if (NetworkUtils.isNetworkConnected(mContext)) {
             showProgress();
             mPresenter.callPicturesDetailApi().subscribe();
         } else {

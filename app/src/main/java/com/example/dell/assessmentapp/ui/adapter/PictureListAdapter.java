@@ -1,4 +1,4 @@
-package com.example.dell.assessmentapp.adapter;
+package com.example.dell.assessmentapp.ui.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.dell.assessmentapp.R;
-import com.example.dell.assessmentapp.model.PictureModel;
+import com.example.dell.assessmentapp.ui.mvp.model.PictureModel;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

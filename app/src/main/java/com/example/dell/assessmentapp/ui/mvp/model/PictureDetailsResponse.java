@@ -1,4 +1,4 @@
-package com.example.dell.assessmentapp.model;
+package com.example.dell.assessmentapp.ui.mvp.model;
 
 import com.google.gson.annotations.SerializedName;
 

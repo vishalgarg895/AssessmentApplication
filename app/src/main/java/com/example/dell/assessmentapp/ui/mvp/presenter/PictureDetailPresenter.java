@@ -1,12 +1,12 @@
-package com.example.dell.assessmentapp.presenter;
+package com.example.dell.assessmentapp.ui.mvp.presenter;
 
 import android.util.Log;
 
-import com.example.dell.assessmentapp.model.PictureDetailsResponse;
-import com.example.dell.assessmentapp.model.PictureModel;
+import com.example.dell.assessmentapp.ui.mvp.model.PictureDetailsResponse;
+import com.example.dell.assessmentapp.ui.mvp.model.PictureModel;
 import com.example.dell.assessmentapp.networkclient.ApiClient;
 import com.example.dell.assessmentapp.networkclient.ApiInterface;
-import com.example.dell.assessmentapp.view.PicturesDetailView;
+import com.example.dell.assessmentapp.ui.mvp.view.PicturesDetailView;
 
 import java.util.List;
 
