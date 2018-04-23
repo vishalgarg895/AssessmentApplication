@@ -12,6 +12,12 @@ public class PictureModel {
     @SerializedName("imageHref")
     private String imageHref;
 
+    public PictureModel(String title,String description,String imageHref)
+    {
+        this.title=title;
+        this.description=description;
+        this.imageHref=imageHref;
+    }
     public String getTitle() {
         return title;
     }

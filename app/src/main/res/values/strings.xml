@@ -4,4 +4,5 @@
     <string name="request_failure_message">Sever is not responding. Please try again!</string>
     <string name="show_progress_message">Please Wait...</string>
     <string name="progress_dialog_title">Loading</string>
+    <string name="btn_retry_title">RETRY</string>
 </resources>

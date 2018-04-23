@@ -1,19 +1,29 @@
 package com.example.dell.assessmentapp.presenter;
 
 import com.example.dell.assessmentapp.model.PictureDetailsResponse;
+import com.example.dell.assessmentapp.model.PictureModel;
 import com.example.dell.assessmentapp.networkclient.ApiClient;
 import com.example.dell.assessmentapp.networkclient.ApiInterface;
 import com.example.dell.assessmentapp.view.PicturesDetailView;
 
-import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.reactivestreams.Subscriber;
 
-import retrofit2.Call;
+import java.util.ArrayList;
+import java.util.List;
+
+import io.reactivex.Single;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.observers.TestObserver;
+import io.reactivex.subscribers.TestSubscriber;
 import retrofit2.Response;
+
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PictureDetailPresenterTest {
@@ -23,14 +33,31 @@ public class PictureDetailPresenterTest {
     private ApiInterface mApiInterface;
     @Mock
     private PicturesDetailView mPicturesDetailView;
+    @Mock
+    private PictureDetailsResponse mPictureDetailsResponse;
+    @Mock
+    List<PictureModel> modelList;
+    @Mock
+    Disposable mDisposable;
 
+    io.reactivex.Observable<Response<PictureDetailsResponse>> observable = io.reactivex.Observable.just(Response.success(mPictureDetailsResponse));
+
+    private PictureDetailPresenter mPictureDetailPresenter;
+
+    @Before
+    public void setup() {
+        mPictureDetailPresenter = new PictureDetailPresenter(mPicturesDetailView);
+    }
 
     @Test
-    public void retrievePictureDetails_getPictureDetails() throws Exception {
-        Call<PictureDetailsResponse> call = Mockito.verify(mApiInterface).getPicturesDetailList();
+    public void test1()
+    {
+        when(mApiInterface.getPictureDetails()).thenReturn(Single.just(mPictureDetailsResponse));
+        when(mPictureDetailsResponse.getPictureModelList()).thenReturn(modelList);
 
-        Response<PictureDetailsResponse> respons = call.execute();
+        mPictureDetailPresenter.callPicturesDetailApi().test().assertComplete().assertNoErrors();
 
-        Assert.assertTrue(respons.isSuccessful());
+        verify(mPicturesDetailView).updatePictureDetailList(modelList);
+        verify(mPicturesDetailView).hideProgress();
     }
 }

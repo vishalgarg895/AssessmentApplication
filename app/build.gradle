@@ -9,6 +9,11 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.android.test.runner.MultiDexTestRunner"
+
+        testOptions {
+            unitTests.returnDefaultValues = true
+        }
     }
     buildTypes {
         release {
@@ -34,6 +39,12 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.4.1'
     compile 'com.squareup.picasso:picasso:2.5.2'
     // required if you want to use Mockito for unit tests
+    // RxJava core library
+    implementation 'io.reactivex.rxjava2:rxjava:2.0.7'
+    // RxAndroid - For AndroidSchedulers to provide results in UI thread
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+
     testCompile 'org.mockito:mockito-core:2.7.22'
     // required if you want to use Mockito for Android tests
     androidTestCompile 'org.mockito:mockito-android:2.7.22'

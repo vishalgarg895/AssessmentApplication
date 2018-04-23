@@ -5,8 +5,8 @@
     <dimen name="left_margin">5dp</dimen>
     <dimen name="right_margin">5dp</dimen>
     <dimen name="image_right_margin">20dp</dimen>
-    <dimen name="top_margin">10dp</dimen>
-    <dimen name="bottom_margin">10dp</dimen>
+    <dimen name="top_margin">6dp</dimen>
+    <dimen name="bottom_margin">6dp</dimen>
     <dimen name="picture_title_text_size">20sp</dimen>
     <dimen name="picture_desc_text_size">12sp</dimen>
     <dimen name="relative_padding">20dp</dimen>
