@@ -12,6 +12,6 @@ public class PictureDetailActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        System.out.println("Hello: This is testing text");
+        System.out.println("Hello: This is testing text")
     }
 }
